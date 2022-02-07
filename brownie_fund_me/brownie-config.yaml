@@ -1,0 +1,33 @@
+dotenv: .env
+
+wallets:
+  from_key: ${PRIVATE_KEY}
+
+dependencies:
+  # - <organization>/<project>@<version>
+  - smartcontractkit/chainlink-brownie-contracts@0.3.1
+
+compiler:
+  solc:
+    remappings:
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@0.3.1'
+
+networks:
+  development:
+    deploy_mocks: True
+    publish_source: False
+  ganache-local:
+    deploy_mocks: True
+    publish_source: False
+  my-fork:
+    deploy_mocks: False
+    eth_usd_price_feed: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
+    publish_source: False
+  rinkeby:
+    deploy_mocks: False
+    eth_usd_price_feed: "0x8A753747A1Fa494EC906cE90E9f37563A8AF630e"
+    publish_source: True
+  kovan:
+    deploy_mocks: False
+    eth_usd_price_feed: "0x9326BFA02ADD2366b30bacB125260Af641031331"
+    publish_source: True
